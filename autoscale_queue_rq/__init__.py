@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 import redis
 from rq import Queue
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __author__ = "Michael R. van Rooijen"
 __contact__ = "support@autoscale.app"
 __homepage__ = "https://autoscale.app"
