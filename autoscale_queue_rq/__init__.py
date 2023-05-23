@@ -12,16 +12,16 @@ __docformat__ = "restructuredtext"
 __keywords__ = "python queue worker autoscale rq"
 
 
-def latency(queue_names, redis_url=None):
+def job_queue_time(queue_names, redis_url=None):
     """
-    Calculate the maximum latency in seconds of the given RQ queues.
+    Calculate the maximum job queue time in seconds of the given RQ queues.
 
-    This function calculates the latency of the provided queues by measuring the time
-    elapsed since the oldest job was enqueued in each queue. The maximum latency among
+    This function calculates the job queue time of the provided queues by measuring the time
+    elapsed since the oldest job was enqueued in each queue. The maximum job queue time among
     all the queues is returned.
 
     Args:
-        queue_names (list[str]): A list of RQ queue names for which to calculate latency.
+        queue_names (list[str]): A list of RQ queue names for which to calculate job queue time.
         redis_url (str, optional): The URL of the Redis server used by RQ. Defaults to None,
             in which case the value will be read from the REDIS_URL environment variable.
 
@@ -32,8 +32,8 @@ def latency(queue_names, redis_url=None):
         redis.exceptions.ConnectionError: If the provided Redis URL is not valid.
 
     Returns:
-        float: The maximum latency in seconds among all the given queues. If a queue has no
-            jobs, its latency is considered as 0.
+        float: The maximum job queue time in seconds among all the given queues. If a queue has no
+            jobs, its job queue time is considered as 0.
     """
     if not queue_names:
         raise ValueError("At least one queue name must be provided")
